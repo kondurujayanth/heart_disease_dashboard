@@ -115,7 +115,12 @@ st.markdown('<p style="text-align:center; font-size:18px;">Enter patient details
 # Input Section
 # ----------------------------
 with st.container():
-    st.markdown('<div class="section small-section"><h3>Patient Information</h3></div>', unsafe_allow_html=True)
+    st.subheader("📋 Customer Information")
+    st.caption("""
+    ⚙️ **Input Details:**  
+    - For all dropdowns, select **0 = No** and **1 = Yes**.  
+    - Adjust the Physical Health.
+    """)
     col1, col2 = st.columns(2)
 
     with col1:
@@ -278,6 +283,7 @@ st.markdown("""
 Made with ❤️ using <b>FastAPI + Streamlit</b> | Developed by <b>Konduru Jayanth</b>
 </p>
 """, unsafe_allow_html=True)
+
 
 
 
