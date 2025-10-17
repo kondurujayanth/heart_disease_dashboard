@@ -6,7 +6,7 @@ import datetime
 # Page Config
 # ----------------------------
 st.set_page_config(
-    page_title="🫀 Heart Disease Prediction",
+    page_title="🫀Heart Disease Prediction",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -278,4 +278,5 @@ st.markdown("""
 Made with ❤️ using <b>FastAPI + Streamlit</b> | Developed by <b>Konduru Jayanth</b>
 </p>
 """, unsafe_allow_html=True)
+
 
