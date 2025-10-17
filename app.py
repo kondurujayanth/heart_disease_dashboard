@@ -159,7 +159,7 @@ if st.button("🔍 Predict Heart Disease Risk"):
                         animation: glow 1.5s infinite alternate;
                     ">
                         🚨 <span style='font-size:30px; animation: pulse 1s infinite;'>High Risk! </span>  
-                        The patient might have heart disease
+                        Potential risk of heart disease detected
                         <br><br>
                         <span style="font-size:16px;font-weight:normal; color:#fff8f0;">
                         📝 Suggestions to reduce risk:<br>
@@ -195,7 +195,7 @@ if st.button("🔍 Predict Heart Disease Risk"):
                         animation: glow 1.5s infinite alternate;
                     ">
                         💚 <span style='font-size:28px; animation: pulse 1s infinite;'>Low Risk! </span>  
-                        The patient is not likely to have heart disease
+                        The patient is unlikely to have heart disease at this time.
                         <br><br>
                         <span style="font-size:16px;font-weight:normal; color:#f0fff0;">
                         🎉 Tips to maintain heart health:<br>
@@ -278,6 +278,7 @@ st.markdown("""
 Made with ❤️ using <b>FastAPI + Streamlit</b> | Developed by <b>Konduru Jayanth</b>
 </p>
 """, unsafe_allow_html=True)
+
 
 
 
