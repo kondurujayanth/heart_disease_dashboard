@@ -193,7 +193,7 @@ if st.button("🔍 Predict Heart Disease Risk"):
                         The patient is not likely to have heart disease
                         <br><br>
                         <span style="font-size:16px;font-weight:normal; color:#f0fff0;">
-                        🎉 Tips to maintain heart health:<br>
+                        🎉 Tips to maintain healthy heart:<br>
                         - Continue regular exercise<br>
                         - Eat plenty of fruits & vegetables<br>
                         - Maintain a healthy weight<br>
@@ -273,6 +273,7 @@ st.markdown("""
 Made with ❤️ using <b>FastAPI + Streamlit</b> | Developed by <b>Konduru Jayanth</b>
 </p>
 """, unsafe_allow_html=True)
+
 
 
 
