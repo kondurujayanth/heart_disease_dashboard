@@ -11,14 +11,11 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ----------------------------
-# Custom CSS Styling
-# ----------------------------
 st.markdown("""
 <style>
-/* Background gradient */
+/* Main App Background (swapped with sidebar colors) */
 .stApp {
-    background: linear-gradient(120deg, #fceabb, #f8b500);
+    background: linear-gradient(135deg, #a1c4fd, #c2e9fb, #89f7fe);
     color: #333333;
 }
 
@@ -76,11 +73,11 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ----------------------------
-# Sidebar Info
+# Sidebar Info (swapped with main section colors)
 # ----------------------------
 st.sidebar.markdown("""
 <div style="
-    background: linear-gradient(135deg, #a1c4fd, #c2e9fb, #89f7fe);
+    background: linear-gradient(120deg, #fceabb, #f8b500);
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
@@ -104,7 +101,6 @@ Developed by
 <b><br>Konduru Jayanth</b></p>
 </div>
 """, unsafe_allow_html=True)
-
 # ----------------------------
 # App Header
 # ----------------------------
@@ -283,6 +279,7 @@ st.markdown("""
 Made with ❤️ using <b>FastAPI + Streamlit</b> | Developed by <b>Konduru Jayanth</b>
 </p>
 """, unsafe_allow_html=True)
+
 
 
 
