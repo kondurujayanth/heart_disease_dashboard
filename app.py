@@ -99,7 +99,7 @@ Developed by
 # ----------------------------
 # App Header
 # ----------------------------
-st.markdown('<div style="text-align:center"><h1>🫀AI Powered Heart Disease Prediction 🤖</h1></div>', unsafe_allow_html=True)
+st.markdown('<div style="text-align:center"><h1>🫀AI Powered Heart Disease Prediction🫀 🤖</h1></div>', unsafe_allow_html=True)
 st.markdown('<p style="text-align:center; font-size:18px;">Enter patient details to predict the risk of heart disease</p>', unsafe_allow_html=True)
 
 # ----------------------------
@@ -274,6 +274,7 @@ st.markdown("""
 Made with ❤️ using <b>FastAPI + Streamlit</b> | Developed by <b>Konduru Jayanth</b>
 </p>
 """, unsafe_allow_html=True)
+
 
 
 
