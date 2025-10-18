@@ -2,6 +2,7 @@ import streamlit as st
 import requests
 import pandas as pd
 import datetime
+
 # ----------------------------
 # Page Config
 # ----------------------------
@@ -18,7 +19,7 @@ st.markdown("""
 <style>
 /* Background gradient */
 .stApp {
-    background: linear-gradient(120deg, #fceabb, #f8b500);
+    background: linear-gradient(120deg, #e0f7fa, #80deea);
     color: #333333;
 }
 
@@ -40,7 +41,7 @@ st.markdown("""
 
 /* Button style */
 .stButton>button {
-    background-color: #ff4b4b;
+    background-color: #007bff;
     color: white;
     font-size: 18px;
     font-weight: bold;
@@ -48,7 +49,7 @@ st.markdown("""
     padding: 10px 20px;
 }
 .stButton>button:hover {
-    background-color: #e63946;
+    background-color: #0056b3;
     color: white;
 }
 
@@ -80,7 +81,7 @@ st.markdown("""
 # ----------------------------
 st.sidebar.markdown("""
 <div style="
-    background: linear-gradient(135deg, #a1c4fd, #c2e9fb, #89f7fe);
+    background: linear-gradient(135deg, #b2fefa, #0ed2f7);
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
@@ -108,7 +109,7 @@ Developed by
 # ----------------------------
 # App Header
 # ----------------------------
-st.markdown('<div style="text-align:center"><h1>🫀AI-Powered Heart Attack Predictor 🤖</h1></div>', unsafe_allow_html=True)
+st.markdown('<div style="text-align:center; color:#007bff;"><h1>🫀AI-Powered Heart Attack Predictor 🤖</h1></div>', unsafe_allow_html=True)
 st.markdown('<p style="text-align:center; font-size:18px;">Enter patient details to predict the risk of heart disease</p>', unsafe_allow_html=True)
 
 # ----------------------------
@@ -144,7 +145,7 @@ if st.button("🔍 Predict Heart Disease Risk"):
     try:
         with st.spinner("Predicting heart disease risk..."):
             response = requests.post(url, json=data)
-            response.raise_for_status()  # raise HTTPError for bad status
+            response.raise_for_status()
             result = response.json()
 
         if "prediction" in result:
@@ -153,7 +154,7 @@ if st.button("🔍 Predict Heart Disease Risk"):
             if pred == 1:
                 st.markdown("""
                     <div style="
-                        background: linear-gradient(135deg, #ff7f7f, #ff4b4b);
+                        background: linear-gradient(135deg, #ff9a9e, #ff6a6a);
                         color:white;
                         padding:25px;
                         border-radius:20px;
@@ -189,7 +190,7 @@ if st.button("🔍 Predict Heart Disease Risk"):
             else:
                 st.markdown("""
                     <div style="
-                        background: linear-gradient(135deg, #a0f7a0, #28a745);
+                        background: linear-gradient(135deg, #8ef6e4, #4cd137);
                         color:white;
                         padding:25px;
                         border-radius:20px;
@@ -244,7 +245,7 @@ df_input = pd.DataFrame(input_data)
 
 st.markdown(f"""
 <div class="table-container" style="
-    background: linear-gradient(135deg, #a1c4fd, #c2e9fb, #89f7fe);
+    background: linear-gradient(135deg, #b2fefa, #0ed2f7);
     padding: 12px;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
@@ -283,6 +284,8 @@ st.markdown("""
 Made with ❤️ using <b>FastAPI + Streamlit</b> | Developed by <b>Konduru Jayanth</b>
 </p>
 """, unsafe_allow_html=True)
+
+
 
 
 
