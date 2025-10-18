@@ -2,175 +2,232 @@ import streamlit as st
 import requests
 import pandas as pd
 import datetime
-
 # ----------------------------
 # Page Config
 # ----------------------------
 st.set_page_config(
-    page_title="🫀 Heart Attack Predictor",
+    page_title="❤️ Heart Disease Prediction",
+    page_icon="💓",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
 # ----------------------------
-# Custom CSS
+# Custom CSS Styling
 # ----------------------------
 st.markdown("""
 <style>
-/* App Background */
+/* Background gradient */
 .stApp {
-    background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
-    color: #333;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(120deg, #fceabb, #f8b500);
+    color: #333333;
 }
 
-/* Sidebar */
-.stSidebar .css-1d391kg {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+/* Section card */
+.section {
+    background-color: white;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-/* Header */
-h1 {
-    color: #2c3e50;
-    font-weight: bold;
+/* Smaller section for Patient Info and Input Summary */
+.small-section {
+    padding: 12px !important;
+    margin-bottom: 12px !important;
+    font-size: 14px !important;
 }
 
-/* Buttons */
+/* Button style */
 .stButton>button {
-    background-color: #2c3e50;
+    background-color: #ff4b4b;
     color: white;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     border-radius: 10px;
     padding: 10px 20px;
-    transition: all 0.2s ease;
 }
 .stButton>button:hover {
-    background-color: #1a252f;
-    transform: scale(1.05);
+    background-color: #e63946;
+    color: white;
 }
 
-/* Inputs */
+/* Input style */
 .stNumberInput>div>div>input, .stSelectbox>div>div>select {
     border-radius: 8px;
     padding: 8px;
-    border: 1px solid #ccc;
 }
 
-/* Risk Card */
-.risk-card {
-    border-radius: 12px;
-    padding: 20px;
-    color: white;
-    font-weight: bold;
-    font-size: 22px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
-}
-
-/* Input Table */
+/* Compact Input Summary table */
 .table-container table {
     border-collapse: collapse;
     width: 100%;
     font-size: 14px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
 }
 .table-container th, .table-container td {
-    border: 1px solid #e0e0e0;
-    padding: 10px;
+    border: 1px solid #ddd;
+    padding: 6px;
     text-align: center;
 }
 .table-container th {
-    background-color: #2c3e50;
-    color: white;
-}
-.table-container tr:nth-child(even) {
-    background-color: #f6f8fa;
+    background-color: #f2f2f2;
 }
 </style>
 """, unsafe_allow_html=True)
 
 # ----------------------------
-# Sidebar
+# Sidebar Info
 # ----------------------------
 st.sidebar.markdown("""
-<div>
-<p><b>About</b><br>This dashboard predicts the <b>risk of Heart Attack</b> using a trained ML model.</p>
-<p><b>Features used:</b><br>- HighBP, HighChol<br>- Smoker, Diabetes<br>- PhysHlth, Sex</p>
-<p>Built with <b>FastAPI + Streamlit</b></p>
-<p>Developer: <b>Konduru Jayanth</b></p>
+<div style="
+    background: linear-gradient(135deg, #a1c4fd, #c2e9fb, #89f7fe);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    color: #333333;
+    font-family: 'Arial', sans-serif;
+">
+<p><b>About</b><br>This dashboard predicts the <b>risk of Heart Attack</b> using a trained Machine Learning (ML) model.</p>
+
+<p><b>Features used:</b><br>
+- HighBP, HighChol<br>
+- Smoker, Diabetes<br>
+- PhysHlth, Sex
+</p>
+
+<p>Built with 
+<b><br>FastAPI + Streamlit</b>
+</p>
+
+<p>
+Developed by
+<b><br>Konduru Jayanth</b></p>
 </div>
 """, unsafe_allow_html=True)
 
 # ----------------------------
-# Header
+# App Header
 # ----------------------------
-st.markdown('<h1 style="text-align:center;">🫀 Heart Attack Predictor</h1>', unsafe_allow_html=True)
-st.markdown('<p style="text-align:center; font-size:16px; color:#555;">Enter patient details to predict heart disease risk</p>', unsafe_allow_html=True)
+st.markdown('<div style="text-align:center"><h1>💓 Heart Disease Prediction Dashboard</h1></div>', unsafe_allow_html=True)
+st.markdown('<p style="text-align:center; font-size:18px;">Enter patient details to predict the risk of heart disease</p>', unsafe_allow_html=True)
 
 # ----------------------------
-# Patient Input Section
+# Input Section
 # ----------------------------
 with st.container():
-    st.subheader("📋 Patient Information")
-    st.caption("⚙️ Input 0 = No, 1 = Yes. Physical Health: 0–30 days")
+    st.markdown('<div class="section small-section"><h3>Patient Information</h3></div>', unsafe_allow_html=True)
     col1, col2 = st.columns(2)
 
     with col1:
-        HighBP = st.selectbox("High Blood Pressure", [0,1])
-        HighChol = st.selectbox("High Cholesterol", [0,1])
-        Smoker = st.selectbox("Smoker", [0,1])
-
+        HighBP = st.selectbox("High Blood Pressure (1=Yes, 0=No)", [0,1])
+        HighChol = st.selectbox("High Cholesterol (1=Yes, 0=No)", [0,1])
+        Smoker = st.selectbox("Smoker (1=Yes, 0=No)", [0,1])
+        
     with col2:
         PhysHlth = st.number_input("Physical Health (0–30 days)", min_value=0, max_value=30, value=5)
-        Diabetes = st.selectbox("Diabetes (0=None,1=Type1,2=Type2)", [0,1,2])
-        Sex = st.selectbox("Sex (0=Female,1=Male)", [0,1])
+        Diabetes = st.selectbox("Diabetes (0=None, 1=Type1, 2=Type2)", [0,1,2])
+        Sex = st.selectbox("Sex (0=Female, 1=Male)", [0,1])
 
 # ----------------------------
-# Prediction Button
+# Prediction Button with Spinner
 # ----------------------------
 if st.button("🔍 Predict Heart Disease Risk"):
+
     url = "https://heart-disease-api-xf83.onrender.com/predict"
     data = {"features": [HighBP, HighChol, Smoker, Diabetes, PhysHlth, Sex]}
 
     try:
-        with st.spinner("Predicting..."):
+        with st.spinner("Predicting heart disease risk..."):
             response = requests.post(url, json=data)
-            response.raise_for_status()
+            response.raise_for_status()  # raise HTTPError for bad status
             result = response.json()
 
         if "prediction" in result:
             pred = result["prediction"]
 
             if pred == 1:
-                st.markdown(f"""
-                    <div class='risk-card' style='background-color:#e74c3c;'>
-                        🚨 High Risk! Potential heart disease detected
-                        <br><span style="font-size:14px;font-weight:normal;">📝 Tips:<br>- Balanced diet<br>- Exercise<br>- Quit smoking<br>- Regular checkups</span>
+                st.markdown("""
+                    <div style="
+                        background: linear-gradient(135deg, #ff7f7f, #ff4b4b);
+                        color:white;
+                        padding:25px;
+                        border-radius:20px;
+                        text-align:center;
+                        font-size:24px;
+                        font-weight:bold;
+                        box-shadow: 0 0 20px rgba(255,0,0,0.6);
+                        animation: glow 1.5s infinite alternate;
+                    ">
+                        🚨 <span style='font-size:30px; animation: pulse 1s infinite;'>High Risk! </span>  
+                        The patient might have heart disease
+                        <br><br>
+                        <span style="font-size:16px;font-weight:normal; color:#fff8f0;">
+                        📝 Suggestions to reduce risk:<br>
+                        - Maintain a balanced diet<br>
+                        - Regular exercise (30 mins/day)<br>
+                        - Quit smoking & reduce alcohol<br>
+                        - Regular checkups for blood pressure & cholesterol
+                        </span>
                     </div>
+                    <style>
+                    @keyframes glow {
+                        0% { box-shadow: 0 0 15px rgba(255,0,0,0.4); }
+                        100% { box-shadow: 0 0 25px rgba(255,0,0,0.8); }
+                    }
+                    @keyframes pulse {
+                        0% { transform: scale(1); }
+                        50% { transform: scale(1.2); }
+                        100% { transform: scale(1); }
+                    }
+                    </style>
                 """, unsafe_allow_html=True)
             else:
-                st.markdown(f"""
-                    <div class='risk-card' style='background-color:#27ae60;'>
-                        💚 Low Risk! Heart health looks good
-                        <br><span style="font-size:14px;font-weight:normal;">🎉 Tips:<br>- Continue exercise<br>- Eat fruits & vegetables<br>- Maintain healthy weight<br>- Monitor stress</span>
+                st.markdown("""
+                    <div style="
+                        background: linear-gradient(135deg, #a0f7a0, #28a745);
+                        color:white;
+                        padding:25px;
+                        border-radius:20px;
+                        text-align:center;
+                        font-size:24px;
+                        font-weight:bold;
+                        box-shadow: 0 0 20px rgba(0,200,0,0.6);
+                        animation: glow 1.5s infinite alternate;
+                    ">
+                        💚 <span style='font-size:28px; animation: pulse 1s infinite;'>Low Risk! </span>  
+                        The patient is not likely to have heart disease
+                        <br><br>
+                        <span style="font-size:16px;font-weight:normal; color:#f0fff0;">
+                        🎉 Tips to maintain heart health:<br>
+                        - Continue regular exercise<br>
+                        - Eat plenty of fruits & vegetables<br>
+                        - Maintain a healthy weight<br>
+                        - Monitor stress levels
+                        </span>
                     </div>
+                    <style>
+                    @keyframes glow {
+                        0% { box-shadow: 0 0 15px rgba(0,200,0,0.4); }
+                        100% { box-shadow: 0 0 25px rgba(0,200,0,0.8); }
+                    }
+                    @keyframes pulse {
+                        0% { transform: scale(1); }
+                        50% { transform: scale(1.15); }
+                        100% { transform: scale(1); }
+                    }
+                    </style>
                 """, unsafe_allow_html=True)
         else:
-            st.warning("⚠️ No prediction received. Try again.")
+            st.warning("⚠️ No prediction received. Please try again.")
+
     except requests.exceptions.RequestException as e:
-        st.error(f"Error connecting to API: {e}")
+        st.error(f"Error connecting to API: {e}. Try again or check your internet connection.")
 
 # ----------------------------
-# Input Summary Table
+# Input Summary
 # ----------------------------
-st.subheader("📋 Input Summary")
+st.markdown('<div class="section small-section"><h3>Input Summary</h3></div>', unsafe_allow_html=True)
 input_data = {
     "HighBP": [HighBP],
     "HighChol": [HighChol],
@@ -180,50 +237,45 @@ input_data = {
     "Sex": [Sex]
 }
 df_input = pd.DataFrame(input_data)
-st.markdown(f"<div class='table-container'>{df_input.to_html(index=False, escape=False)}</div>", unsafe_allow_html=True)
+
+st.markdown(f"""
+<div class="table-container" style="
+    background: linear-gradient(135deg, #a1c4fd, #c2e9fb, #89f7fe);
+    padding: 12px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    color: #333333;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+">
+{df_input.to_html(index=False, escape=False)}
+</div>
+""", unsafe_allow_html=True)
 
 # ----------------------------
-# Footer
+# Prediction timestamp, Download, and Disclaimer
 # ----------------------------
 prediction_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-st.markdown(f"<p style='text-align:right; font-size:12px; color:#888;'>Last prediction: {prediction_time}</p>", unsafe_allow_html=True)
+st.markdown(f"""
+<p style="text-align:right; font-size:12px; color:gray;">
+Last prediction timestamp: {prediction_time}
+</p>
+""", unsafe_allow_html=True)
 
 st.download_button(
     label="📥 Download Input Summary as CSV",
     data=df_input.to_csv(index=False),
-    file_name="heart_attack_input_summary.csv",
-    mime="text/csv"
+    file_name="heart_disease_input_summary.csv",
+    mime="text/csv",
+    help="Download the patient input data for your records"
 )
 
+# ----------------------------
+# Footer
+# ----------------------------
 st.markdown("""
 <hr>
-<p style="text-align:center; font-size:14px; color:#555;">
+<p style="text-align:center; font-size:14px;">
 Made with ❤️ using <b>FastAPI + Streamlit</b> | Developed by <b>Konduru Jayanth</b>
 </p>
 """, unsafe_allow_html=True)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
