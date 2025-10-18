@@ -76,23 +76,23 @@ st.markdown("""
 # ----------------------------
 st.sidebar.markdown("""
 ### ℹ️ About the App
-This dashboard predicts the **risk of customer churn** in a telecom company.
+<p><b>About</b><br>This dashboard predicts the <b>risk of Heart Attack</b> using a trained Machine Learning (ML) model.</p>
 
-**Features Used:**
-- InternetService_Fiber optic  
-- PaymentMethod_Electronic check  
-- PaperlessBilling  
-- SeniorCitizen  
-- StreamingTV_Yes  
-- MonthlyCharges  
+<p><b>Features used:</b><br>
+- HighBP, HighChol<br>
+- Smoker, Diabetes<br>
+- PhysHlth, Sex
+</p>
 
-**Goal:** Identify high-risk customers for proactive retention.
+<p>Built with 
+<b><br>FastAPI + Streamlit</b>
+</p>
 
-**Model Type:** Binary Classification (Churn=1, No Churn=0)
-
-Built with **FastAPI + Streamlit**  
-Developer: **Konduru Jayanth**
-""")
+<p>
+Developed by
+<b><br>Konduru Jayanth</b></p>
+</div>
+""", unsafe_allow_html=True)
 # ----------------------------
 # App Header
 # ----------------------------
@@ -271,6 +271,7 @@ st.markdown("""
 Made with ❤️ using <b>FastAPI + Streamlit</b> | Developed by <b>Konduru Jayanth</b>
 </p>
 """, unsafe_allow_html=True)
+
 
 
 
