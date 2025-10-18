@@ -21,7 +21,7 @@ st.markdown("""
 
 /* Sidebar */
 [data-testid="stSidebar"] {
-    background: linear-gradient(135deg, #FFF59D, #FFEB3B, #FDD835);
+    background: linear-gradient(135deg, #FFCC80, #FF9800, #F57C00);
     padding: 20px;
     border-radius: 15px;
     color: #333;
@@ -271,6 +271,7 @@ st.markdown("""
 Made with ❤️ using <b>FastAPI + Streamlit</b> | Developed by <b>Konduru Jayanth</b>
 </p>
 """, unsafe_allow_html=True)
+
 
 
 
