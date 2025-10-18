@@ -75,7 +75,7 @@ st.markdown("""
 # Sidebar Info (swapped with main section colors)
 # ----------------------------
 st.sidebar.markdown("""
-<p><b>ℹ️ About the App</b><br>This dashboard predicts the <b>risk of Heart Attack</b> using a trained Machine Learning (ML) model.</p>
+<p><b>ℹ️ About the App</b><br>This dashboard predicts the <b>Risk of Heart Attack</b> using a trained Machine Learning (ML) model.</p>
 
 <p><b>Features used:</b><br>
 - HighBP<br>
@@ -273,6 +273,7 @@ st.markdown("""
 Made with ❤️ using <b>FastAPI + Streamlit</b> | Developed by <b>Konduru Jayanth</b>
 </p>
 """, unsafe_allow_html=True)
+
 
 
 
