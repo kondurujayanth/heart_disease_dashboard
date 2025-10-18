@@ -19,7 +19,7 @@ st.markdown("""
 <style>
 /* App background */
 .stApp {
-    background: linear-gradient(135deg, #fff0f3, #ffe8e8);
+    background: linear-gradient(135deg, #fffaf0, #ffe6e6); /* soft light background */
     color: #333;
     font-family: 'Arial', sans-serif;
 }
@@ -35,11 +35,12 @@ st.markdown("""
 /* Header */
 h1 {
     color: #d63447;
+    font-weight: bold;
 }
 
-/* Buttons */
+/* Button */
 .stButton>button {
-    background: linear-gradient(90deg, #ff6b6b, #ff4757);
+    background: linear-gradient(90deg, #ff4b4b, #ff1a1a);
     color: white;
     font-size: 18px;
     font-weight: bold;
@@ -49,7 +50,7 @@ h1 {
 }
 .stButton>button:hover {
     transform: scale(1.05);
-    background: linear-gradient(90deg, #ff4757, #ff6b6b);
+    background: linear-gradient(90deg, #ff1a1a, #ff4b4b);
 }
 
 /* Inputs */
@@ -63,7 +64,7 @@ h1 {
     border-collapse: collapse;
     width: 100%;
     font-size: 14px;
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
@@ -73,11 +74,11 @@ h1 {
     text-align: center;
 }
 .table-container th {
-    background-color: #ffd6d6;
+    background-color: #ffe6e6;
     color: #333;
 }
 .table-container tr:nth-child(even) {
-    background-color: #fff0f3;
+    background-color: #fff0f0;
 }
 
 /* Risk Card */
@@ -88,22 +89,18 @@ h1 {
     font-weight: bold;
     font-size: 22px;
     text-align: center;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
 }
 </style>
 """, unsafe_allow_html=True)
 
 # ----------------------------
-# Sidebar Info
+# Sidebar
 # ----------------------------
 st.sidebar.markdown("""
 <div>
 <p><b>About</b><br>This dashboard predicts the <b>risk of Heart Attack</b> using a trained ML model.</p>
-<p><b>Features used:</b><br>
-- HighBP, HighChol<br>
-- Smoker, Diabetes<br>
-- PhysHlth, Sex
-</p>
+<p><b>Features used:</b><br>- HighBP, HighChol<br>- Smoker, Diabetes<br>- PhysHlth, Sex</p>
 <p>Built with <b>FastAPI + Streamlit</b></p>
 <p>Developer: <b>Konduru Jayanth</b></p>
 </div>
@@ -151,14 +148,14 @@ if st.button("🔍 Predict Heart Disease Risk"):
 
             if pred == 1:
                 st.markdown(f"""
-                    <div class='risk-card' style='background: linear-gradient(135deg, #ff6b6b, #ff4757);'>
+                    <div class='risk-card' style='background: linear-gradient(135deg, #ff4b4b, #d63447);'>
                         🚨 High Risk! Potential heart disease detected
-                        <br><span style="font-size:15px;font-weight:normal;">📝 Tips:<br>- Balanced diet<br>- Exercise<br>- Quit smoking<br>- Checkups</span>
+                        <br><span style="font-size:15px;font-weight:normal;">📝 Tips:<br>- Balanced diet<br>- Exercise<br>- Quit smoking<br>- Regular checkups</span>
                     </div>
                 """, unsafe_allow_html=True)
             else:
                 st.markdown(f"""
-                    <div class='risk-card' style='background: linear-gradient(135deg, #6bc1ff, #1f90ff);'>
+                    <div class='risk-card' style='background: linear-gradient(135deg, #4caf50, #2e7d32);'>
                         💚 Low Risk! Heart health looks good
                         <br><span style="font-size:15px;font-weight:normal;">🎉 Tips:<br>- Continue exercise<br>- Eat fruits & vegetables<br>- Maintain healthy weight<br>- Monitor stress</span>
                     </div>
@@ -202,6 +199,8 @@ st.markdown("""
 Made with ❤️ using <b>FastAPI + Streamlit</b> | Developed by <b>Konduru Jayanth</b>
 </p>
 """, unsafe_allow_html=True)
+
+
 
 
 
