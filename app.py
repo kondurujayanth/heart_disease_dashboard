@@ -19,7 +19,7 @@ st.markdown("""
 <style>
 /* Background gradient */
 .stApp {
-    background: linear-gradient(120deg, #e0f7fa, #80deea);
+    background: linear-gradient(120deg, #f5fafd, #e0f7fa);
     color: #333333;
 }
 
@@ -29,7 +29,7 @@ st.markdown("""
     border-radius: 15px;
     padding: 25px;
     margin-bottom: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
 /* Smaller section for Patient Info and Input Summary */
@@ -39,17 +39,18 @@ st.markdown("""
     font-size: 14px !important;
 }
 
-/* Button style */
+/* Gradient button style */
 .stButton>button {
-    background-color: #007bff;
+    background: linear-gradient(135deg, #6dd5ed, #2193b0);
     color: white;
     font-size: 18px;
     font-weight: bold;
-    border-radius: 10px;
-    padding: 10px 20px;
+    border-radius: 12px;
+    padding: 10px 25px;
+    transition: 0.3s;
 }
 .stButton>button:hover {
-    background-color: #0056b3;
+    background: linear-gradient(135deg, #2193b0, #6dd5ed);
     color: white;
 }
 
@@ -59,19 +60,22 @@ st.markdown("""
     padding: 8px;
 }
 
-/* Compact Input Summary table */
+/* Input Summary table */
 .table-container table {
     border-collapse: collapse;
     width: 100%;
     font-size: 14px;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 .table-container th, .table-container td {
     border: 1px solid #ddd;
-    padding: 6px;
+    padding: 8px;
     text-align: center;
 }
 .table-container th {
-    background-color: #f2f2f2;
+    background-color: #f0f4f8;
+    color: #333;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -81,14 +85,14 @@ st.markdown("""
 # ----------------------------
 st.sidebar.markdown("""
 <div style="
-    background: linear-gradient(135deg, #b2fefa, #0ed2f7);
+    background: linear-gradient(135deg, #d0f0fd, #a0e0fc);
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     color: #333333;
     font-family: 'Arial', sans-serif;
 ">
-<p><b>About</b><br>This dashboard predicts the <b>risk of Heart Attack</b> using a trained Machine Learning (ML) model.</p>
+<p><b>About</b><br>This dashboard predicts the <b>risk of Heart Attack</b> using a trained Machine Learning model.</p>
 
 <p><b>Features used:</b><br>
 - HighBP, HighChol<br>
@@ -109,7 +113,7 @@ Developed by
 # ----------------------------
 # App Header
 # ----------------------------
-st.markdown('<div style="text-align:center; color:#007bff;"><h1>🫀AI-Powered Heart Attack Predictor 🤖</h1></div>', unsafe_allow_html=True)
+st.markdown('<div style="text-align:center; color:#0077b6;"><h1>🫀AI-Powered Heart Attack Predictor 🤖</h1></div>', unsafe_allow_html=True)
 st.markdown('<p style="text-align:center; font-size:18px;">Enter patient details to predict the risk of heart disease</p>', unsafe_allow_html=True)
 
 # ----------------------------
@@ -154,35 +158,35 @@ if st.button("🔍 Predict Heart Disease Risk"):
             if pred == 1:
                 st.markdown("""
                     <div style="
-                        background: linear-gradient(135deg, #ff9a9e, #ff6a6a);
+                        background: linear-gradient(135deg, #ffb3b3, #ff4d4d);
                         color:white;
                         padding:25px;
                         border-radius:20px;
                         text-align:center;
                         font-size:24px;
                         font-weight:bold;
-                        box-shadow: 0 0 20px rgba(255,0,0,0.6);
+                        box-shadow: 0 0 20px rgba(255,0,0,0.4);
                         animation: glow 1.5s infinite alternate;
                     ">
-                        🚨 <span style='font-size:30px; animation: pulse 1s infinite;'>High Risk! </span>  
+                        🚨 <span style='font-size:30px; animation: pulse 1s infinite;'>High Risk!</span>  
                         Potential risk of heart disease detected
                         <br><br>
                         <span style="font-size:16px;font-weight:normal; color:#fff8f0;">
                         📝 Suggestions to reduce risk:<br>
                         - Maintain a balanced diet<br>
-                        - Regular exercise (30 mins/day)<br>
+                        - Regular exercise<br>
                         - Quit smoking & reduce alcohol<br>
-                        - Regular checkups for blood pressure & cholesterol
+                        - Regular checkups
                         </span>
                     </div>
                     <style>
                     @keyframes glow {
-                        0% { box-shadow: 0 0 15px rgba(255,0,0,0.4); }
-                        100% { box-shadow: 0 0 25px rgba(255,0,0,0.8); }
+                        0% { box-shadow: 0 0 10px rgba(255,0,0,0.3); }
+                        100% { box-shadow: 0 0 20px rgba(255,0,0,0.6); }
                     }
                     @keyframes pulse {
                         0% { transform: scale(1); }
-                        50% { transform: scale(1.2); }
+                        50% { transform: scale(1.15); }
                         100% { transform: scale(1); }
                     }
                     </style>
@@ -190,17 +194,17 @@ if st.button("🔍 Predict Heart Disease Risk"):
             else:
                 st.markdown("""
                     <div style="
-                        background: linear-gradient(135deg, #8ef6e4, #4cd137);
+                        background: linear-gradient(135deg, #b9fbc0, #4cd137);
                         color:white;
                         padding:25px;
                         border-radius:20px;
                         text-align:center;
                         font-size:24px;
                         font-weight:bold;
-                        box-shadow: 0 0 20px rgba(0,200,0,0.6);
+                        box-shadow: 0 0 20px rgba(0,200,0,0.4);
                         animation: glow 1.5s infinite alternate;
                     ">
-                        💚 <span style='font-size:28px; animation: pulse 1s infinite;'>Low Risk! </span>  
+                        💚 <span style='font-size:28px; animation: pulse 1s infinite;'>Low Risk!</span>  
                         The patient is unlikely to have heart disease at this time.
                         <br><br>
                         <span style="font-size:16px;font-weight:normal; color:#f0fff0;">
@@ -213,12 +217,12 @@ if st.button("🔍 Predict Heart Disease Risk"):
                     </div>
                     <style>
                     @keyframes glow {
-                        0% { box-shadow: 0 0 15px rgba(0,200,0,0.4); }
-                        100% { box-shadow: 0 0 25px rgba(0,200,0,0.8); }
+                        0% { box-shadow: 0 0 10px rgba(0,200,0,0.3); }
+                        100% { box-shadow: 0 0 20px rgba(0,200,0,0.6); }
                     }
                     @keyframes pulse {
                         0% { transform: scale(1); }
-                        50% { transform: scale(1.15); }
+                        50% { transform: scale(1.1); }
                         100% { transform: scale(1); }
                     }
                     </style>
@@ -244,21 +248,13 @@ input_data = {
 df_input = pd.DataFrame(input_data)
 
 st.markdown(f"""
-<div class="table-container" style="
-    background: linear-gradient(135deg, #b2fefa, #0ed2f7);
-    padding: 12px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    color: #333333;
-    font-family: 'Arial', sans-serif;
-    font-size: 14px;
-">
+<div class="table-container">
 {df_input.to_html(index=False, escape=False)}
 </div>
 """, unsafe_allow_html=True)
 
 # ----------------------------
-# Prediction timestamp, Download, and Disclaimer
+# Prediction timestamp, Download, and Footer
 # ----------------------------
 prediction_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 st.markdown(f"""
@@ -271,19 +267,17 @@ st.download_button(
     label="📥 Download Input Summary as CSV",
     data=df_input.to_csv(index=False),
     file_name="heart_disease_input_summary.csv",
-    mime="text/csv",
-    help="Download the patient input data for your records"
+    mime="text/csv"
 )
 
-# ----------------------------
-# Footer
-# ----------------------------
 st.markdown("""
 <hr>
 <p style="text-align:center; font-size:14px;">
 Made with ❤️ using <b>FastAPI + Streamlit</b> | Developed by <b>Konduru Jayanth</b>
 </p>
 """, unsafe_allow_html=True)
+
+
 
 
 
