@@ -19,13 +19,12 @@ st.markdown("""
     color: #333333;
 }
 
-/* Section card */
-.section {
-    background-color: white;
+/* Sidebar */
+[data-testid="stSidebar"] {
+    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+    padding: 20px;
     border-radius: 15px;
-    padding: 25px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    color: #333;
 }
 
 /* Smaller section for Patient Info and Input Summary */
@@ -279,6 +278,7 @@ st.markdown("""
 Made with ❤️ using <b>FastAPI + Streamlit</b> | Developed by <b>Konduru Jayanth</b>
 </p>
 """, unsafe_allow_html=True)
+
 
 
 
