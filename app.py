@@ -76,12 +76,15 @@ st.markdown("""
 # ----------------------------
 st.sidebar.markdown("""
 ### ℹ️ About the App
-<p><b>About</b><br>This dashboard predicts the <b>risk of Heart Attack</b> using a trained Machine Learning (ML) model.</p>
+<p><br>This dashboard predicts the <b>risk of Heart Attack</b> using a trained Machine Learning (ML) model.</p>
 
 <p><b>Features used:</b><br>
-- HighBP, HighChol<br>
-- Smoker, Diabetes<br>
-- PhysHlth, Sex
+- HighBP<br>
+- HighChol<br>
+- Smoker<br>
+- Diabetes<br>
+- PhysHlth<br>
+- Sex
 </p>
 
 <p>Built with 
@@ -271,6 +274,7 @@ st.markdown("""
 Made with ❤️ using <b>FastAPI + Streamlit</b> | Developed by <b>Konduru Jayanth</b>
 </p>
 """, unsafe_allow_html=True)
+
 
 
 
