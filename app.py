@@ -7,7 +7,7 @@ import datetime
 # Page Config
 # ----------------------------
 st.set_page_config(
-    page_title="🫀Heart Attack Predictor",
+    page_title="🫀 Heart Attack Predictor",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -19,42 +19,46 @@ st.markdown("""
 <style>
 /* App background */
 .stApp {
-    background: linear-gradient(120deg, #fff1f0, #ffe6e6);
+    background: linear-gradient(135deg, #fff0f3, #ffe8e8);
     color: #333;
     font-family: 'Arial', sans-serif;
 }
 
-/* Sidebar styling */
+/* Sidebar card */
 .stSidebar .css-1d391kg {
-    background: #ffd6d6;
-    border-radius: 15px;
+    background: #ffffff;
     padding: 20px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-    color: #333;
+    border-radius: 15px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
 }
 
-/* Button styling */
+/* Header */
+h1 {
+    color: #d63447;
+}
+
+/* Buttons */
 .stButton>button {
-    background-color: #ff6b6b;
+    background: linear-gradient(90deg, #ff6b6b, #ff4757);
     color: white;
     font-size: 18px;
     font-weight: bold;
     border-radius: 12px;
     padding: 10px 25px;
-    transition: 0.2s;
+    transition: all 0.2s ease;
 }
 .stButton>button:hover {
-    background-color: #ff4c4c;
     transform: scale(1.05);
+    background: linear-gradient(90deg, #ff4757, #ff6b6b);
 }
 
-/* Inputs styling */
+/* Inputs */
 .stNumberInput>div>div>input, .stSelectbox>div>div>select {
     border-radius: 8px;
     padding: 8px;
 }
 
-/* Table styling */
+/* Table */
 .table-container table {
     border-collapse: collapse;
     width: 100%;
@@ -64,16 +68,16 @@ st.markdown("""
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 .table-container th, .table-container td {
-    border: 1px solid #ddd;
-    padding: 8px;
+    border: 1px solid #f2f2f2;
+    padding: 10px;
     text-align: center;
 }
 .table-container th {
-    background-color: #ffb3b3;
+    background-color: #ffd6d6;
     color: #333;
 }
 .table-container tr:nth-child(even) {
-    background-color: #fff2f2;
+    background-color: #fff0f3;
 }
 
 /* Risk Card */
@@ -90,18 +94,16 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ----------------------------
-# Sidebar
+# Sidebar Info
 # ----------------------------
 st.sidebar.markdown("""
 <div>
 <p><b>About</b><br>This dashboard predicts the <b>risk of Heart Attack</b> using a trained ML model.</p>
-
 <p><b>Features used:</b><br>
 - HighBP, HighChol<br>
 - Smoker, Diabetes<br>
 - PhysHlth, Sex
 </p>
-
 <p>Built with <b>FastAPI + Streamlit</b></p>
 <p>Developer: <b>Konduru Jayanth</b></p>
 </div>
@@ -110,7 +112,7 @@ st.sidebar.markdown("""
 # ----------------------------
 # Header
 # ----------------------------
-st.markdown('<div style="text-align:center; color:#d43f3f;"><h1>🫀 Heart Attack Predictor</h1></div>', unsafe_allow_html=True)
+st.markdown('<h1 style="text-align:center;">🫀 Heart Attack Predictor</h1>', unsafe_allow_html=True)
 st.markdown('<p style="text-align:center; font-size:18px;">Enter patient details to predict heart disease risk</p>', unsafe_allow_html=True)
 
 # ----------------------------
@@ -149,16 +151,16 @@ if st.button("🔍 Predict Heart Disease Risk"):
 
             if pred == 1:
                 st.markdown(f"""
-                    <div class='risk-card' style='background: linear-gradient(135deg, #ff7f7f, #ff4c4c);'>
+                    <div class='risk-card' style='background: linear-gradient(135deg, #ff6b6b, #ff4757);'>
                         🚨 High Risk! Potential heart disease detected
                         <br><span style="font-size:15px;font-weight:normal;">📝 Tips:<br>- Balanced diet<br>- Exercise<br>- Quit smoking<br>- Checkups</span>
                     </div>
                 """, unsafe_allow_html=True)
             else:
                 st.markdown(f"""
-                    <div class='risk-card' style='background: linear-gradient(135deg, #8ee5ee, #4db6ac);'>
+                    <div class='risk-card' style='background: linear-gradient(135deg, #6bc1ff, #1f90ff);'>
                         💚 Low Risk! Heart health looks good
-                        <br><span style="font-size:15px;font-weight:normal;">🎉 Tips:<br>- Continue exercise<br>- Eat fruits & vegetables<br>- Healthy weight<br>- Monitor stress</span>
+                        <br><span style="font-size:15px;font-weight:normal;">🎉 Tips:<br>- Continue exercise<br>- Eat fruits & vegetables<br>- Maintain healthy weight<br>- Monitor stress</span>
                     </div>
                 """, unsafe_allow_html=True)
         else:
@@ -200,6 +202,8 @@ st.markdown("""
 Made with ❤️ using <b>FastAPI + Streamlit</b> | Developed by <b>Konduru Jayanth</b>
 </p>
 """, unsafe_allow_html=True)
+
+
 
 
 
