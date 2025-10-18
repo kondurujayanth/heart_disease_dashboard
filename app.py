@@ -21,7 +21,7 @@ st.markdown("""
 
 /* Sidebar */
 [data-testid="stSidebar"] {
-    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
     padding: 20px;
     border-radius: 15px;
     color: #333;
@@ -75,31 +75,24 @@ st.markdown("""
 # Sidebar Info (swapped with main section colors)
 # ----------------------------
 st.sidebar.markdown("""
-<div style="
-    background: linear-gradient(120deg, #fceabb, #f8b500);
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    color: #333333;
-    font-family: 'Arial', sans-serif;
-">
-<p><b>About</b><br>This dashboard predicts the <b>risk of Heart Attack</b> using a trained Machine Learning (ML) model.</p>
+### ℹ️ About the App
+This dashboard predicts the **risk of customer churn** in a telecom company.
 
-<p><b>Features used:</b><br>
-- HighBP, HighChol<br>
-- Smoker, Diabetes<br>
-- PhysHlth, Sex
-</p>
+**Features Used:**
+- InternetService_Fiber optic  
+- PaymentMethod_Electronic check  
+- PaperlessBilling  
+- SeniorCitizen  
+- StreamingTV_Yes  
+- MonthlyCharges  
 
-<p>Built with 
-<b><br>FastAPI + Streamlit</b>
-</p>
+**Goal:** Identify high-risk customers for proactive retention.
 
-<p>
-Developed by
-<b><br>Konduru Jayanth</b></p>
-</div>
-""", unsafe_allow_html=True)
+**Model Type:** Binary Classification (Churn=1, No Churn=0)
+
+Built with **FastAPI + Streamlit**  
+Developer: **Konduru Jayanth**
+""")
 # ----------------------------
 # App Header
 # ----------------------------
@@ -278,6 +271,7 @@ st.markdown("""
 Made with ❤️ using <b>FastAPI + Streamlit</b> | Developed by <b>Konduru Jayanth</b>
 </p>
 """, unsafe_allow_html=True)
+
 
 
 
