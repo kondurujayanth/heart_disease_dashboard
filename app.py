@@ -17,9 +17,9 @@ st.set_page_config(
 # ----------------------------
 st.markdown("""
 <style>
-/* App background */
+/* App Background */
 .stApp {
-    background-color: #f5f5f5;
+    background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
     color: #333;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -29,56 +29,35 @@ st.markdown("""
     background-color: #ffffff;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
 }
 
 /* Header */
 h1 {
-    color: #2e3a59;
+    color: #2c3e50;
     font-weight: bold;
 }
 
 /* Buttons */
 .stButton>button {
-    background-color: #2e3a59;
+    background-color: #2c3e50;
     color: white;
     font-size: 16px;
     font-weight: bold;
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 10px 20px;
     transition: all 0.2s ease;
 }
 .stButton>button:hover {
-    background-color: #1c253b;
+    background-color: #1a252f;
+    transform: scale(1.05);
 }
 
 /* Inputs */
 .stNumberInput>div>div>input, .stSelectbox>div>div>select {
-    border-radius: 6px;
-    padding: 6px;
-    border: 1px solid #ccc;
-}
-
-/* Input Table */
-.table-container table {
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 14px;
-    border-radius: 6px;
-    overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-}
-.table-container th, .table-container td {
-    border: 1px solid #e0e0e0;
+    border-radius: 8px;
     padding: 8px;
-    text-align: center;
-}
-.table-container th {
-    background-color: #2e3a59;
-    color: white;
-}
-.table-container tr:nth-child(even) {
-    background-color: #f9f9f9;
+    border: 1px solid #ccc;
 }
 
 /* Risk Card */
@@ -87,15 +66,38 @@ h1 {
     padding: 20px;
     color: white;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 22px;
     text-align: center;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+/* Input Table */
+.table-container table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+.table-container th, .table-container td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: center;
+}
+.table-container th {
+    background-color: #2c3e50;
+    color: white;
+}
+.table-container tr:nth-child(even) {
+    background-color: #f6f8fa;
 }
 </style>
 """, unsafe_allow_html=True)
 
 # ----------------------------
-# Sidebar Info
+# Sidebar
 # ----------------------------
 st.sidebar.markdown("""
 <div>
@@ -199,6 +201,8 @@ st.markdown("""
 Made with ❤️ using <b>FastAPI + Streamlit</b> | Developed by <b>Konduru Jayanth</b>
 </p>
 """, unsafe_allow_html=True)
+
+
 
 
 
